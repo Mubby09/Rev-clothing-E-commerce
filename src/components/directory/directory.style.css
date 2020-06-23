@@ -1,0 +1,8 @@
+.directory-menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 5px 5px;
+    padding: 10px;
+}
