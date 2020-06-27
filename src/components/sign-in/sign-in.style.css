@@ -1,7 +1,9 @@
 .sign-in {
-    padding: 50px;
+    margin: 0 100px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
+    width: auto
 }
 
 span {
@@ -9,12 +11,12 @@ span {
 }
 
 label {
-    font-size: 30px;
+    font-size: 20px;
     margin: 30px;
 }
 
 input {
-    width: 50%;
+    width: 100%;
     height: 50px;
 }
 
@@ -22,9 +24,54 @@ input {
     border-top: none;
     border-left: 0;
     border-right: 0;
-    font-size: 20px;
+    font-size: 15px;
 }
 
 .formInput:focus {
     outline: none;
+}
+
+.google-button {
+    background-color: darkorchid;
+    color: white;
+    border: 0;
+    height: 50px;
+    margin-left: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.google-button:hover {
+    border: 1px solid black;
+    background-color: transparent;
+    color: black;
+}
+
+.buttons {
+    text-align: center;
+}
+
+@media (max-width: 500px) {
+    .sign-in {
+        margin: 0 20px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        width: auto
+    }
+
+    .google-button {
+        margin-top: 10px;
+        background-color: darkorchid;
+        color: white;
+        border: 0;
+        height: 50px;
+        margin-left: 10px;
+        text-align: center;
+        text-transform: uppercase;
+        padding: 10px;
+        cursor: pointer;
+    }
 }

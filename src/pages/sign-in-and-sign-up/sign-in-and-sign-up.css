@@ -1,6 +1,26 @@
 /* .SignInSignUp {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    width: 100vw;
+    text-align: center;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 2fr 2fr;
     align-items: center;
+} */
+
+.SignInSignUp {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 5px 5px;
+    padding: 10px;
+}
+
+
+/* @media(max-width: 500px) {
+    .SignInSignUp {
+        display: grid;
+        grid-template-columns: 1fr;
+        margin: auto;
+    }
 } */

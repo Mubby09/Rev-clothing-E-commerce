@@ -11,6 +11,7 @@ class SignInSignUp extends React.Component {
     return (
       <div className="SignInSignUp">
         <SignIn />
+        <SignIn />
       </div>
     );
   }
