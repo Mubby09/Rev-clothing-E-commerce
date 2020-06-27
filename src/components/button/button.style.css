@@ -1,0 +1,23 @@
+.button {
+    margin: auto;
+    padding: 10px;
+    background-color: black;
+    border: 0;
+    color: white;
+    text-align: center;
+    margin-top: 20px;
+    cursor: pointer;
+    height: 50px;
+    width: auto;
+    text-transform: uppercase;
+}
+
+.button:hover {
+    color: black;
+    background-color: transparent;
+    border: 1px solid black;
+}
+
+.button:focus {
+    outline: none;
+}

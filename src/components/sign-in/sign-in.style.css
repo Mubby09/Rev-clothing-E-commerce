@@ -1,0 +1,30 @@
+.sign-in {
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+span {
+    text-decoration: underline;
+}
+
+label {
+    font-size: 30px;
+    margin: 30px;
+}
+
+input {
+    width: 50%;
+    height: 50px;
+}
+
+input {
+    border-top: none;
+    border-left: 0;
+    border-right: 0;
+    font-size: 20px;
+}
+
+.formInput:focus {
+    outline: none;
+}
