@@ -13,7 +13,8 @@ const config = {
   measurementId: "G-TS0XH5VQ8N"
 };
 
-//To check if user alreadyd exists in Firebase and if not we create a new user
+//To check if user alreadyd exists in Firebase and if not we create a new user and update the firebase Database with the new user
+//When trying to perform any CRUD operation in the Database, You have to use the 'userRef' and not the 'snapShot'
 export const createUserProfileDocument = async (userAuth, additionalData) => {
   if (!userAuth) return;
   const userRef = firestore.doc(`users/${userAuth.uid}`);

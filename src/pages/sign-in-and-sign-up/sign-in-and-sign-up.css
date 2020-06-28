@@ -8,6 +8,8 @@
 } */
 
 .SignInSignUp {
+    text-align: center;
+    margin: auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;

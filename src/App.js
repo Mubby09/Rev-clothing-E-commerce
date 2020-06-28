@@ -25,13 +25,18 @@ class App extends React.Component {
       if (userAuth) {
         const userRef = await createUserProfileDocument(userAuth);
 
+        //onSnapshot allows us check if a document exists.
+        //It also allows us get properties of that data using the .data() method.
+        //we actuall do not get any data until we use the .data() method.
         userRef.onSnapshot((snapShot) => {
           this.setState({
             currentUser: {
+              //W can get the id of the document without using the .data() method.
               id: snapShot.id,
               ...snapShot.data()
             }
           });
+          console.log(this.state.currentUser);
         });
       }
       this.setState({ currentUser: userAuth });

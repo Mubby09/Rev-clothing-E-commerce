@@ -3,32 +3,7 @@
     padding: 20px;
     display: flex;
     flex-direction: column;
-    width: auto
-}
-
-span {
-    text-decoration: underline;
-}
-
-label {
-    font-size: 20px;
-    margin: 30px;
-}
-
-input {
-    width: 100%;
-    height: 50px;
-}
-
-input {
-    border-top: none;
-    border-left: 0;
-    border-right: 0;
-    font-size: 15px;
-}
-
-.formInput:focus {
-    outline: none;
+    width: 380px;
 }
 
 .google-button {
