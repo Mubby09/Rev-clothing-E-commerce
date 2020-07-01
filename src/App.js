@@ -9,15 +9,10 @@ import {
   auth,
   createUserProfileDocument
 } from "../src/firebase/firebase-utilities";
+import { connect } from "react-redux";
+import { setCurrentUser } from "./redux/user/user.actions";
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      currentUser: null
-    };
-  }
-
   unSubscribeFromAuth = null;
 
   componentDidMount() {
@@ -29,17 +24,15 @@ class App extends React.Component {
         //It also allows us get properties of that data using the .data() method.
         //we actuall do not get any data until we use the .data() method.
         userRef.onSnapshot((snapShot) => {
-          this.setState({
-            currentUser: {
-              //W can get the id of the document without using the .data() method.
-              id: snapShot.id,
-              ...snapShot.data()
-            }
+          this.props.setCurrentUser({
+            //W can get the id of the document without using the .data() method.
+            id: snapShot.id,
+            ...snapShot.data()
           });
-          console.log(this.state.currentUser);
+          // console.log(this.state.currentUser);
         });
       }
-      this.setState({ currentUser: userAuth });
+      this.props.setCurrentUser(userAuth);
     });
   }
 
@@ -50,7 +43,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Header currentUser={this.state.currentUser} />
+        <Header />
         <Switch>
           <Route exact path="/signIn" component={SignInSignUp} />
           <Route exact path="/" component={HomePage} />
@@ -61,4 +54,8 @@ class App extends React.Component {
   }
 }
 
-export default App;
+const mapDispatchToProps = (dispatch) => ({
+  setCurrentUser: (user) => dispatch(setCurrentUser(user))
+});
+
+export default connect(null, mapDispatchToProps)(App);
