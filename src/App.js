@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import HomePage from "./pages/homepage.component";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 import ShopPage from "../src/pages/shop/shop.page";
 import Header from "../src/components/Header/header";
 import SignInSignUp from "../src/pages/sign-in-and-sign-up/sign-in-and-sign-up";
@@ -10,7 +10,7 @@ import {
   createUserProfileDocument
 } from "../src/firebase/firebase-utilities";
 import { connect } from "react-redux";
-import { setCurrentUser } from "./redux/user/user.actions";
+import { setCurrentUser } from "./redux/user/user-action";
 
 class App extends React.Component {
   unSubscribeFromAuth = null;
@@ -45,7 +45,13 @@ class App extends React.Component {
       <div className="App">
         <Header />
         <Switch>
-          <Route exact path="/signIn" component={SignInSignUp} />
+          <Route
+            exact
+            path="/signIn"
+            render={() =>
+              this.props.currentUser ? <Redirect to="/" /> : <SignInSignUp />
+            }
+          />
           <Route exact path="/" component={HomePage} />
           <Route exact path="/shop" component={ShopPage} />
         </Switch>
@@ -54,8 +60,13 @@ class App extends React.Component {
   }
 }
 
+//Destructuring the 'userReducer' , that is why we have {user}
+const mapStateToProps = ({ user }) => ({
+  currentUser: user.currentUser
+});
+
 const mapDispatchToProps = (dispatch) => ({
   setCurrentUser: (user) => dispatch(setCurrentUser(user))
 });
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

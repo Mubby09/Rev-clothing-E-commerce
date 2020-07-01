@@ -3,7 +3,7 @@ import "./header.style.css";
 import { Link } from "react-router-dom";
 import { ReactComponent as Logo } from "../../assests/crown.svg";
 import { auth } from "../../firebase/firebase-utilities";
-import { connect } from "react-redux";
+import { connect } from "react-redux"; //'connect' is used to connect the 'ropor-reducer to the 'header' component here.
 
 const Header = ({ currentUser }) => (
   <div>
@@ -60,6 +60,7 @@ const Header = ({ currentUser }) => (
   </div>
 );
 
+//We use state as the parameter here because we are trying to get the state of the user from the root reducer.
 const mapStateToProps = (state) => ({
   currentUser: state.user.currentUser
 });
