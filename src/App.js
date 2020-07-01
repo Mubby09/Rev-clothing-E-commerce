@@ -5,6 +5,7 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import ShopPage from "../src/pages/shop/shop.page";
 import Header from "../src/components/Header/header";
 import SignInSignUp from "../src/pages/sign-in-and-sign-up/sign-in-and-sign-up";
+import ContactPage from "../src/pages/contact-page/contact-page";
 import {
   auth,
   createUserProfileDocument
@@ -31,8 +32,9 @@ class App extends React.Component {
           });
           // console.log(this.state.currentUser);
         });
+      } else {
+        this.props.setCurrentUser(userAuth);
       }
-      this.props.setCurrentUser(userAuth);
     });
   }
 
@@ -54,6 +56,7 @@ class App extends React.Component {
           />
           <Route exact path="/" component={HomePage} />
           <Route exact path="/shop" component={ShopPage} />
+          <Route exact path="/contact-page" component={ContactPage} />
         </Switch>
       </div>
     );
@@ -65,6 +68,7 @@ const mapStateToProps = ({ user }) => ({
   currentUser: user.currentUser
 });
 
+//Getting the 'setCurrentUser' trigger from 'user-action'
 const mapDispatchToProps = (dispatch) => ({
   setCurrentUser: (user) => dispatch(setCurrentUser(user))
 });
