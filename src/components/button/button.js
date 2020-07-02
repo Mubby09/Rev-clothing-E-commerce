@@ -1,8 +1,8 @@
 import React from "react";
 import "./button.style.css";
 
-const Button = ({ children, ...otherProps }) => (
-  <button className="button" {...otherProps}>
+const Button = ({ children, inverted, ...otherProps }) => (
+  <button className={`${inverted ? "inverted" : ""}button`} {...otherProps}>
     {children}
   </button>
 );

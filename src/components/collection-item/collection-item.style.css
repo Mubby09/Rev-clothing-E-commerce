@@ -4,6 +4,7 @@
     height: 350px;
     flex-direction: column;
     align-items: center;
+    position: relative;
 }
 
 .image {
@@ -33,8 +34,10 @@
 .name {
     width: 90;
     margin-bottom: 15px;
+    text-decoration: none;
 }
 
 .price {
     width: 10%;
+    text-decoration: none;
 }

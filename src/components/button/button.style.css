@@ -21,3 +21,15 @@
 .button:focus {
     outline: none;
 }
+
+.inverted {
+    color: black;
+    background-color: transparent;
+    border: 1px solid black;
+}
+
+.inverted:hover {
+    background-color: black;
+    border: 1px solid black;
+    color: white;
+}
