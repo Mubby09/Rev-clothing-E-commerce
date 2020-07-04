@@ -10,13 +10,15 @@
     height: 50px;
     width: auto;
     text-transform: uppercase;
+    transition: 0.3s all ease-in-out;
 }
 
 .button:hover {
     color: black;
-    background-color: transparent;
+    background-color: rgb(211, 148, 192);
     border: 1px solid black;
     box-shadow: 2px 2px 8px 2px #888888;
+    transform: scale(1.03);
 }
 
 .button:focus {
