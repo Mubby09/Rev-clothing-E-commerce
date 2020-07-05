@@ -6,12 +6,15 @@ import ShopPage from "../src/pages/shop/shop.page";
 import Header from "../src/components/Header/header";
 import SignInSignUp from "../src/pages/sign-in-and-sign-up/sign-in-and-sign-up";
 import ContactPage from "../src/pages/contact-page/contact-page";
+import CheckoutPage from "../src/pages/checkout/checkout";
 import {
   auth,
   createUserProfileDocument
 } from "../src/firebase/firebase-utilities";
 import { connect } from "react-redux";
 import { setCurrentUser } from "./redux/user/user-action";
+import { createStructuredSelector } from "reselect";
+import { selectCurrentUser } from "../src/redux/user/user.selector";
 
 class App extends React.Component {
   unSubscribeFromAuth = null;
@@ -57,6 +60,7 @@ class App extends React.Component {
           <Route exact path="/" component={HomePage} />
           <Route exact path="/shop" component={ShopPage} />
           <Route exact path="/contact-page" component={ContactPage} />
+          <Route exact path="/checkout" component={CheckoutPage} />
         </Switch>
       </div>
     );
@@ -64,8 +68,8 @@ class App extends React.Component {
 }
 
 //Destructuring the 'userReducer' , that is why we have {user}
-const mapStateToProps = ({ user }) => ({
-  currentUser: user.currentUser
+const mapStateToProps = createStructuredSelector({
+  currentUser: selectCurrentUser
 });
 
 //Getting the 'setCurrentUser' trigger from 'user-action'

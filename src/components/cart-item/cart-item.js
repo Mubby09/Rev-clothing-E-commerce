@@ -7,7 +7,11 @@ const CartItem = ({ item }) => (
     <div className="item-details">
       <div className="name">{item.name}</div>
       <div className="price">
-        <p>{item.quantity} </p> x <p>${item.price}</p>
+        <p>{item.quantity} </p> x{" "}
+        <p>
+          ${item.price}
+          <button title="remove item">X</button>
+        </p>
       </div>
     </div>
   </div>

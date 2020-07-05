@@ -22,3 +22,14 @@
 Button {
     margin-top: auto;
 }
+
+.no-items {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    color: white;
+    font-weight: bold;
+}
