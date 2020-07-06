@@ -2,11 +2,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px 10px;
-    border: 1px solid yellow;
+    padding: 10px 20px;
+    border: 1px solid black;
     width: 100%;
     height: 50vh;
     font-size: 20px;
+    margin-bottom: 10px;
 }
 
 .image-container {
@@ -22,15 +23,28 @@ img {
 .name,
 .quantity,
 .price {
-    width: 23%;
+    width: 30%;
 }
 
 
 .quantity {
     padding-left: 20px;
+
 }
 
 .remove-button {
     padding-left: 12px;
+    cursor: pointer;
+}
+
+.fa-plus {
+    margin-left: 10px;
+}
+
+.fa-minus {
+    margin-right: 10px;
+}
+
+.fa:hover {
     cursor: pointer;
 }
