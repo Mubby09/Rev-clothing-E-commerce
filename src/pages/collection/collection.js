@@ -5,12 +5,12 @@ import { connect } from "react-redux";
 import { selectCollection } from "../../redux/shop/shop.selector";
 
 const Collection = ({ collection }) => {
-  const { title, items } = collection;
+  // const { title, items } = collection;
   return (
     <div className="collection">
-      <h1>{title}</h1>
+      <h1 className="title">{collection.title}</h1>
       <div className="items">
-        {items.map((item) => (
+        {collection.items.map((item) => (
           <CollectionItem key={item.id} item={item} />
         ))}
       </div>
