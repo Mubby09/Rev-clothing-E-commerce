@@ -4,13 +4,15 @@ import CollectionItem from "../../components/collection-item/collection-item";
 import { connect } from "react-redux";
 import { selectCollection } from "../../redux/shop/shop.selector";
 
-const Collection = ({ collection }) => {
-  // const { title, items } = collection;
+const Collection = ({ collections }) => {
+  console.log(collections);
+  const { title, items } = collections;
   return (
+    // const { title, items } = collections;
     <div className="collection">
-      <h1 className="title">{collection.title}</h1>
+      <h1 className="title">{title}</h1>
       <div className="items">
-        {collection.items.map((item) => (
+        {items.map((item) => (
           <CollectionItem key={item.id} item={item} />
         ))}
       </div>
@@ -19,7 +21,7 @@ const Collection = ({ collection }) => {
 };
 
 const mapStateToProps = (state, ownProps) => ({
-  collection: selectCollection(ownProps.match.params.collectionId)(state)
+  collections: selectCollection(ownProps.match.params.collectionId)(state)
 });
 
 export default connect(mapStateToProps)(Collection);
