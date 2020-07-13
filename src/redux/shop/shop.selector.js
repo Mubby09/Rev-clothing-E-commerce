@@ -21,6 +21,12 @@ export const selectCollectionsForPreview = createSelector(
   (collections) => Object.keys(collections).map((key) => collections[key])
 );
 
+// export const selectCollection = (collectionUrlParam) =>
+//   createSelector(
+//     [useSelectCollections],
+//     (collections) => collections[collectionUrlParam]
+//   );
+
 export const selectCollection = memoize((collectionUrlParam) =>
   createSelector([useSelectCollections], (collections) =>
     collections.find(
@@ -28,10 +34,3 @@ export const selectCollection = memoize((collectionUrlParam) =>
     )
   )
 );
-
-// export const selectCollection = memoize((collectionUrlParam) =>
-//   createSelector(
-//     [useSelectCollections],
-//     (collections) => collections[collectionUrlParam]
-//   )
-// );
