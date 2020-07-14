@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
-import HomePage from "./pages/homepage.component";
+// import HomePage from "./pages/homepage.component";
+import NewHomepage from "../src/pages/new-homepage/new-homepage";
 import { Switch, Route, Redirect } from "react-router-dom";
 import ShopPage from "../src/pages/shop/shop.page";
 import Header from "../src/components/Header/header";
@@ -57,7 +58,7 @@ class App extends React.Component {
               this.props.currentUser ? <Redirect to="/" /> : <SignInSignUp />
             }
           />
-          <Route exact path="/" component={HomePage} />
+          <Route exact path="/" component={NewHomepage} />
           <Route path="/shop" component={ShopPage} />
           <Route path="/contact-page" component={ContactPage} />
           <Route path="/checkout" component={CheckoutPage} />

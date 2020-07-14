@@ -1,0 +1,20 @@
+.background {
+    padding-top: 150px;
+    background: url(../../assests/erica-zhou-IHpUgFDn7zU-unsplash.jpg) no-repeat center center/cover;
+    object-fit: cover;
+    height: 100vh;
+    margin: auto;
+    text-align: center;
+    padding: 10px;
+}
+
+.heading {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    align-items: center;
+    font-size: 50px;
+    color: rgb(231, 231, 18);
+    text-align: center;
+}
