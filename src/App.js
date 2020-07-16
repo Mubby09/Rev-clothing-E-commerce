@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
-// import HomePage from "./pages/homepage.component";
-import NewHomepage from "../src/pages/new-homepage/new-homepage";
+import HomePage from "./pages/homepage.component";
+// import NewHomepage from "../src/pages/new-homepage/new-homepage";
 import { Switch, Route, Redirect } from "react-router-dom";
 import ShopPage from "../src/pages/shop/shop.page";
 import Header from "../src/components/Header/header";
@@ -10,12 +10,14 @@ import ContactPage from "../src/pages/contact-page/contact-page";
 import CheckoutPage from "../src/pages/checkout/checkout";
 import {
   auth,
-  createUserProfileDocument
+  createUserProfileDocument,
+  addCollectionsAndDocuments
 } from "../src/firebase/firebase-utilities";
 import { connect } from "react-redux";
 import { setCurrentUser } from "./redux/user/user-action";
 import { createStructuredSelector } from "reselect";
 import { selectCurrentUser } from "../src/redux/user/user.selector";
+import { selectCollectionsForPreview } from "../src/redux/shop/shop.selector";
 
 class App extends React.Component {
   unSubscribeFromAuth = null;
@@ -38,6 +40,13 @@ class App extends React.Component {
         });
       } else {
         this.props.setCurrentUser(userAuth);
+        addCollectionsAndDocuments(
+          "collections",
+          this.props.collectionsArray.map(({ title, items }) => ({
+            title,
+            items
+          }))
+        );
       }
     });
   }
@@ -58,7 +67,7 @@ class App extends React.Component {
               this.props.currentUser ? <Redirect to="/" /> : <SignInSignUp />
             }
           />
-          <Route exact path="/" component={NewHomepage} />
+          <Route exact path="/" component={HomePage} />
           <Route path="/shop" component={ShopPage} />
           <Route path="/contact-page" component={ContactPage} />
           <Route path="/checkout" component={CheckoutPage} />
@@ -70,7 +79,8 @@ class App extends React.Component {
 
 //Destructuring the 'userReducer' , that is why we have {user}
 const mapStateToProps = createStructuredSelector({
-  currentUser: selectCurrentUser
+  currentUser: selectCurrentUser,
+  collectionsArray: selectCollectionsForPreview
 });
 
 //Getting the 'setCurrentUser' trigger from 'user-action'

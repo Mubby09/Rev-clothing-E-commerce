@@ -9,14 +9,15 @@ import CartDropdown from "../cart-dropdown/cart-dropdown";
 import { createStructuredSelector } from "reselect";
 import { selectCartHidden } from "../../redux/cart/cart.selector";
 import { selectCurrentUser } from "../../redux/user/user.selector";
+import { HeaderContainer, OptionsContainer } from "./header.styles";
 
 const Header = ({ currentUser, hidden }) => (
-  <div className="header">
+  <HeaderContainer>
     <Link to="/" className="logo-container">
       REV <Logo className="logo" />
       CLOTHINGS
     </Link>
-    <div className="options">
+    <OptionsContainer>
       <div>
         {" "}
         <Link to="/shop" className="shop">
@@ -44,8 +45,8 @@ const Header = ({ currentUser, hidden }) => (
         <CartIcon />
       </div>
       {hidden ? "" : <CartDropdown />}
-    </div>
-  </div>
+    </OptionsContainer>
+  </HeaderContainer>
 );
 
 //We use state as the parameter here because we are trying to get the state of the user from the root reducer.
