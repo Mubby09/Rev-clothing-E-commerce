@@ -17,7 +17,11 @@
 
 .item-count {
     position: absolute;
+    width: 20px;
+    height: 20px;
     font-weight: bold;
     bottom: 10px;
     font-size: 15px;
+    background-color: yellow;
+    border-radius: 50px;
 }

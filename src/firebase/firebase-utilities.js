@@ -38,18 +38,18 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
   return userRef;
 };
 
-export const addCollectionsAndDocuments = async (
-  collectionKey,
-  objectsToAdd
-) => {
-  const collectionRef = firestore.collection(collectionKey);
-  const batch = firestore.batch();
-  objectsToAdd.forEach((obj) => {
-    const newDocRef = collectionRef.doc();
-    batch.set(newDocRef);
-  });
-  await batch.commit();
-};
+// export const addCollectionsAndDocuments = async (
+//   collectionKey,
+//   objectsToAdd
+// ) => {
+//   const collectionRef = firestore.collection(collectionKey);
+//   const batch = firestore.batch();
+//   objectsToAdd.forEach((obj) => {
+//     const newDocRef = collectionRef.doc();
+//     batch.set(newDocRef);
+//   });
+//   await batch.commit();
+// };
 
 firebase.initializeApp(config);
 
@@ -59,6 +59,10 @@ export const firestore = firebase.firestore();
 const provider = new firebase.auth.GoogleAuthProvider();
 provider.setCustomParameters({ prompt: "select_account" });
 
+const provider2 = new firebase.auth.TwitterAuthProvider();
+provider2.setCustomParameters({ prompt: "select_account" });
+
 export const SignInWithGoogle = () => auth.signInWithPopup(provider);
+export const SignInWithTwitter = () => auth.signInWithPopup(provider2);
 
 export default firebase;

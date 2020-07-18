@@ -10,14 +10,14 @@ import ContactPage from "../src/pages/contact-page/contact-page";
 import CheckoutPage from "../src/pages/checkout/checkout";
 import {
   auth,
-  createUserProfileDocument,
-  addCollectionsAndDocuments
+  createUserProfileDocument
+  // addCollectionsAndDocuments
 } from "../src/firebase/firebase-utilities";
 import { connect } from "react-redux";
 import { setCurrentUser } from "./redux/user/user-action";
 import { createStructuredSelector } from "reselect";
 import { selectCurrentUser } from "../src/redux/user/user.selector";
-import { selectCollectionsForPreview } from "../src/redux/shop/shop.selector";
+import { useSelectCollections } from "../src/redux/shop/shop.selector";
 
 class App extends React.Component {
   unSubscribeFromAuth = null;
@@ -40,13 +40,13 @@ class App extends React.Component {
         });
       } else {
         this.props.setCurrentUser(userAuth);
-        addCollectionsAndDocuments(
-          "collections",
-          this.props.collectionsArray.map(({ title, items }) => ({
-            title,
-            items
-          }))
-        );
+        // addCollectionsAndDocuments(
+        //   "collections",
+        //   this.props.collectionsArray.map(({ title, items }) => ({
+        //     title,
+        //     items
+        //   }))
+        // );
       }
     });
   }
@@ -80,7 +80,7 @@ class App extends React.Component {
 //Destructuring the 'userReducer' , that is why we have {user}
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
-  collectionsArray: selectCollectionsForPreview
+  collectionsArray: useSelectCollections
 });
 
 //Getting the 'setCurrentUser' trigger from 'user-action'
