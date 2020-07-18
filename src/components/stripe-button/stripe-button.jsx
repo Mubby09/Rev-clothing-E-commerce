@@ -20,7 +20,7 @@ const StripeCheckoutButton = ({ price }) => {
       billingAddress
       shippingAddress
       image="https://svgshare.com/i/CUz.svg"
-      description={`Your Total is ${price}`}
+      description={`Your Total is $${price}`}
       amount={priceForStripe}
       panelLabel="PAY NOW"
       token={onTokenSubmit}
