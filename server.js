@@ -35,10 +35,10 @@ app.post("/payment", (req, res) => {
     currency: "usd"
   };
   stripe.charges.create(body, (stripeErr, stripeRes) => {
-    if (stripeErr) {
-      res.status(500).send({ error: stripeErr });
-    } else {
+    if (!stripeErr) {
       res.status(200).send({ success: stripeRes });
+    } else {
+      res.status(500).send({ error: stripeErr });
     }
   });
 });
