@@ -10,21 +10,23 @@ const CheckoutItem = ({ cartItem, clearItem, addItem, removeItem }) => {
       <div className="image-container">
         <img src={imageUrl} alt="item" />
       </div>
+      <div>
+        <span className="name">{name}</span>
+        <span className="quantity">
+          {/* <i className="fa fa-minus" onClick={() => removeItem(cartItem)}></i> */}
+          {quantity}
+          <i
+            className="fa fa-plus"
+            onClick={() => {
+              addItem(cartItem);
+            }}
+          ></i>
+        </span>
+        <span className="price">${price}</span>
+      </div>
 
-      <span className="name">{name}</span>
-      <span className="quantity">
-        {/* <i className="fa fa-minus" onClick={() => removeItem(cartItem)}></i> */}
-        {quantity}
-        <i
-          className="fa fa-plus"
-          onClick={() => {
-            addItem(cartItem);
-          }}
-        ></i>
-      </span>
-      <span className="price">${price}</span>
       <div className="remove-button" onClick={() => clearItem(cartItem)}>
-        &#10006;
+        REMOVE ITEM
       </div>
     </div>
   );

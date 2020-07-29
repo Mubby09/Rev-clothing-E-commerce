@@ -1,5 +1,5 @@
 .collection-item {
-    width: 22vw;
+    width: 20vw;
     display: flex;
     height: 350px;
     flex-direction: column;
@@ -10,7 +10,7 @@
 .image {
     object-fit: cover;
     width: 100%;
-    height: 95%;
+    height: 100%;
     background-position: center;
     background-size: cover;
     margin-bottom: 5px;
@@ -40,4 +40,27 @@
 .price {
     width: 10%;
     text-decoration: none;
+}
+
+@media(max-width:500px) {
+    .collection-item {
+        margin: 5px;
+        width: 100%;
+        display: flex;
+        height: 250px;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+    }
+
+    .image {
+        object-fit: cover;
+        width: 200px;
+        height: 100%;
+        background-position: center;
+        background-size: cover;
+        margin-bottom: 5px;
+        transition: 0.8s transform ease-in-out;
+        cursor: pointer;
+    }
 }

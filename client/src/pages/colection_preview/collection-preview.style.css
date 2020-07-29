@@ -10,6 +10,20 @@
 }
 
 .preview {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 15px;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin: auto;
+}
+
+@media(max-width:500px) {
+    .preview {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        flex-direction: column;
+        margin-bottom: 50px;
+    }
 }
