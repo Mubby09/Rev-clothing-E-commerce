@@ -17,12 +17,16 @@ const Header = ({ currentUser, hidden }) => (
       CLOTHINGS
     </Link>
     <div className="options">
-      <div>
-        {" "}
-        <Link to="/shop" className="shop">
-          Shop
-        </Link>
-      </div>
+      {currentUser ? (
+        <div>
+          {" "}
+          <Link to="/shop" className="shop">
+            Shop
+          </Link>
+        </div>
+      ) : (
+        ""
+      )}
 
       <div>
         {currentUser ? (

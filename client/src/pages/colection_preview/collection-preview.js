@@ -7,7 +7,8 @@ const CollectionPreview = ({ title, items }) => (
     <h1 className="title">{title}</h1>
     <div className="preview">
       {items
-        .filter((item, index) => index < 15)
+        // .filter((item, index) => index < 4)
+        //.filter above to filter a number of items
         .map((item) => (
           <CollectionItem key={item.id} item={item} />
         ))}
