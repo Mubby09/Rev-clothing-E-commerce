@@ -10,12 +10,28 @@ import { createStructuredSelector } from "reselect";
 import { selectCartHidden } from "../../redux/cart/cart.selector";
 import { selectCurrentUser } from "../../redux/user/user.selector";
 
+const preventClickAfterUserIsLoggedIn = (e) => {
+  e.preventDefault();
+};
+
 const Header = ({ currentUser, hidden }) => (
   <div className="header">
-    <Link to="/" className="logo-container">
-      REV <Logo className="logo" />
-      CLOTHINGS
-    </Link>
+    {currentUser ? (
+      <Link
+        to="/"
+        className="logo-container"
+        onClick={preventClickAfterUserIsLoggedIn}
+      >
+        REV <Logo className="logo" />
+        CLOTHINGS
+      </Link>
+    ) : (
+      <Link to="/" className="logo-container">
+        REV <Logo className="logo" />
+        CLOTHINGS
+      </Link>
+    )}
+
     <div className="options">
       {currentUser ? (
         <div>
